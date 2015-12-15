@@ -1,12 +1,94 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+   <f:view>
     <h:head>
-        <title>Facelet Title</title>
+        <f:loadBundle basename="ch.hearc.ig.odi.moviemanager.bundle.message" var="msg" />
+        
+        <title>Gestion des films</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <h1>#{msg['accueilPerson']} </h1>
+        
+            <h:form>
+                <h:dataTable id="listePerson" var="person" value="#{personLISBean.personDM}">
+                    
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msg['numero']}" />
+                        </f:facet>
+                        <h:outputText id="id" value="#{person.id}"/>
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msg['prenom']}" />
+                        </f:facet>
+                        <h:outputText id="firstname" value="#{person.firstName}"/>
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msg['nomPerson']}" />
+                        </f:facet>
+                        <h:commandLink id="lastname" value="#{person.lastName}" action="#{detailsPerson.showPerson(person)}" />
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msg['nbFilm']}" />
+                        </f:facet>
+                        <h:outputText id="nbFilm" value="#{person.size}" />
+                    </h:column>
+                    
+                </h:dataTable>
+            </h:form>
+        
+        <br></br><br></br><br></br><br></br>
+       
+        <h1>#{msg['accueilFilm']} </h1>
+        
+        
+        
+            <h:form>
+                <h:dataTable id="listeFilm" var="movie" value="#{filmLISBean.filmDM}">
+                    
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msg['numero']}" />
+                        </f:facet>
+                        <h:outputText id="idFilm" value="#{movie.id}"/>
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msg['nomFilm']}" />
+                        </f:facet>
+                        <h:commandLink id="nomFilm" value="#{movie.name}" action="#{detailsMovie.showMovie(movie)}" />
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msg['producer']}" />
+                        </f:facet>
+                        <h:outputText id="producer" value="#{movie.producer}" />
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msg['nbPerson']}" />
+                        </f:facet>
+                        <h:outputText id="nbPerson" value="#{movie.size}" />
+                    </h:column>
+                    
+                </h:dataTable>
+                <br></br>
+         </h:form>
+
     </h:body>
+  </f:view>
 </html>
 
