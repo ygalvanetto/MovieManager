@@ -19,7 +19,7 @@ import javax.inject.Named;
 
 /**
  *
- * @author Francois Gatherat <francois.gatherat@he-arc.ch>
+ * @author Yannick Galvanetto <yannick.galvanetto@he-arc.ch>
  */
 @Named(value="detailsPerson")
 @SessionScoped

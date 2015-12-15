@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+   <f:view>
+        <h:head>
+            <title>MovieManager</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        </h:head>
+        <h:body>
+            <h1>#{msg['titreAddPerson']} </h1>
+            
+            <h:form>
+                <h:outputText value="#{msg['numero']} : " />
+                <h:inputText id="numero" value="#{personBean.number}" />
+                <br></br>  
+                <h:outputText value="#{msg['prenom']} : " />
+                <h:inputText id="prenom" value="#{personBean.firstName}"/>
+                <br></br> 
+                <h:outputText value="#{msg['nomPerson']} : " />
+                <h:inputText id="nom" value="#{personBean.lastName}" />
+                <br></br> 
+                <br></br>
+                <h:commandButton id="btAdd" type="submit" value="#{msg['btAddPerson']}" action="#{personBean.add}"/>
+                <h:commandButton id="btRenit" type="reset" value="#{msg['btRenit']}" action="renitialiserAjout"/>
+            </h:form>
+                <br></br>
+                <br></br>
+            <h:form> 
+                <h:commandButton id="btAnnuler" type="submit" value="#{msg['btAnnuler']}" action="annulerAjout"/> 
+            </h:form>
+        </h:body>
+   </f:view>
+</html>
