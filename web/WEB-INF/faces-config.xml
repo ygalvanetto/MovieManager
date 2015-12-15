@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+    
+<application>    
+        <resource-bundle>
+             <base-name>ch.hearc.ig.odi.moviemanager.bundle.message</base-name>
+             <var>msg</var>
+        </resource-bundle>
+<!-- Ajout de la langue par défaut et des langues supportées -->
+        <locale-config>
+            <default-locale>fr</default-locale>
+            <supported-locale>fr</supported-locale>
+            <supported-locale>en</supported-locale>
+        </locale-config>
+        
+        <navigation-rule>
+           <from-view-id>/accueil.xhtml</from-view-id>
+           <navigation-case>
+               <from-action>#{detailsPerson.showPerson(person)}</from-action>          
+               <from-outcome>show</from-outcome>
+               <to-view-id>/detailsPerson.xhtml</to-view-id>
+           </navigation-case>
+           <navigation-case>
+               <from-action>#{detailsPerson.showPerson(person)}</from-action>          
+               <from-outcome>error</from-outcome>
+               <to-view-id>/accueil.xhtml</to-view-id>
+           </navigation-case>
+           <navigation-case>
+               <from-action>#{detailsMovie.showMovie(movie)}</from-action>          
+               <from-outcome>show</from-outcome>
+               <to-view-id>/detailsMovie.xhtml</to-view-id>
+           </navigation-case>
+           <navigation-case>
+               <from-action>#{detailsMovie.showMovie(movie)}</from-action>          
+               <from-outcome>error</from-outcome>
+               <to-view-id>/accueil.xhtml</to-view-id>
+           </navigation-case>
+       </navigation-rule>
+       
+       <navigation-rule>
+           <from-view-id>/detailsPerson.xhtml</from-view-id>
+           <navigation-case>
+               <from-outcome>retourAcceuil</from-outcome>
+               <to-view-id>/accueil.xhtml</to-view-id>
+           </navigation-case>
+       </navigation-rule>
+       
+       <navigation-rule>
+           <from-view-id>/detailsPerson.xhtml</from-view-id>
+           <navigation-case>
+               <from-action>#{detailsMovie.showMovie(movie)}</from-action>          
+               <from-outcome>show</from-outcome>
+               <to-view-id>/detailsMovie.xhtml</to-view-id>
+           </navigation-case>
+           <navigation-case>
+               <from-action>#{detailsMovie.showMovie(movie)}</from-action>          
+               <from-outcome>error</from-outcome>
+               <to-view-id>/detailsPerson.xhtml</to-view-id>
+           </navigation-case>
+       </navigation-rule>
+       
+       <navigation-rule>
+           <from-view-id>/detailsMovie.xhtml</from-view-id>
+           <navigation-case>
+               <from-action>#{detailsPerson.showPerson(person)}</from-action>          
+               <from-outcome>show</from-outcome>
+               <to-view-id>/detailsPerson.xhtml</to-view-id>
+           </navigation-case>
+           <navigation-case>
+               <from-action>#{detailsPerson.showPerson(person)}</from-action>          
+               <from-outcome>error</from-outcome>
+               <to-view-id>/detailsMovie.xhtml</to-view-id>
+           </navigation-case>
+           <navigation-case>
+               <from-outcome>retourAcceuil</from-outcome>
+               <to-view-id>/accueil.xhtml</to-view-id>
+           </navigation-case>
+       </navigation-rule>
+       
+ </application>    
+        
+</faces-config>
+
+
+

@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+   <f:view>
+    <h:head>
+        <f:loadBundle basename="ch.hearc.ig.odi.moviemanager.bundle.message" var="msg" />
+        
+        <title>Details Film</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h1>#{msg['detailsMovie']} </h1>
+        
+         <h:panelGrid columns="2">
+            <h:outputLabel value="#{msg['numero']}" /> 
+            <h:outputText value="#{detailsMovie.movie.id}" />
+            <h:outputLabel value="#{msg['nomFilm']}" />
+            <h:outputText value="#{detailsMovie.movie.name}" />
+            <h:outputLabel value="#{msg['producer']}" />
+            <h:outputText value="#{detailsMovie.movie.producer}" />
+        </h:panelGrid>
+        
+        <h2>#{msg['listFilm']} </h2>
+        
+         <h:form>
+             <h:dataTable id="listeFilm" var="person" value="#{detailsMovie.person}">
+                    
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msg['numero']}" />
+                        </f:facet>
+                        <h:outputText id="numero" value="#{person.id}"/>
+                    </h:column>
+                    
+                 <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msg['nomPerson']}" />
+                        </f:facet>
+                     <h:commandLink id="nom" value="#{person.lastName}" action="#{detailsPerson.showPerson(person)}" />
+                 </h:column>
+                    
+                 <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msg['prenom']}" />
+                        </f:facet>
+                     <h:outputText id="prenom" value="#{person.firstName}" />
+                    </h:column>
+                    
+                </h:dataTable>
+                <br></br>
+                <h:commandButton id="retourAcceuil" value="#{msg['lienRetourAcceuil']}" action="retourAcceuil" /> 
+            </h:form>
+
+    </h:body>
+  </f:view>
+</html>
