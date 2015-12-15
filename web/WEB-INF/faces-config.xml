@@ -81,6 +81,35 @@
            </navigation-case>
        </navigation-rule>
        
+       
+       <navigation-rule>
+           <from-view-id>/createPerson.xhtml</from-view-id>
+           <navigation-case>
+               <from-outcome>annulerAjout</from-outcome>
+               <to-view-id>/accueil.xhtml</to-view-id>
+           </navigation-case>
+       </navigation-rule>
+       
+       <navigation-rule>
+           <from-view-id>/createPerson.xhtml</from-view-id>
+           <navigation-case>
+               <from-outcome>renitialiserAjout</from-outcome>
+               <to-view-id>/createPerson.xhtml</to-view-id>
+           </navigation-case>
+       </navigation-rule>
+       
+       <navigation-rule>
+           <from-view-id>/createPerson.xhtml</from-view-id>
+           <navigation-case>
+               <from-outcome>success</from-outcome>
+               <to-view-id>/accueil.xhtml</to-view-id>
+           </navigation-case>
+           <navigation-case>
+               <from-outcome>error</from-outcome>
+               <to-view-id>/createPerson.xhtml</to-view-id>
+           </navigation-case>
+       </navigation-rule>
+       
  </application>    
         
 </faces-config>
